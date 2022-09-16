@@ -2,7 +2,7 @@
 
 This lab's main focus is learning how to use GPIO pins by creating a mini stoplight on a raspberry pi and breadboard.  It connects to a remote webpage via wifi in order to not only create a circuit, but to create the user interface that controls it as well.  The result of this is an embedded system seeing as it is created and used for a specific purpose.  This report will deliver the schematics, setup, challenges, and results from this process.
 
-##Requirements
+## Requirements
 
 * Use a Raspberry Pi and it’s GPIO pins
 * Use a breadboard, LEDs (red, green, yellow), and resistors to create the circuit
@@ -12,14 +12,14 @@ This lab's main focus is learning how to use GPIO pins by creating a mini stopli
 * Reasonable time interval for each LED in the cycle is used
 * When the off button on webpage is pressed, any illuminated LED or current cycle mode is stopped and the machine is in the off state
 
-##State Machine
+## State Machine
 
 The state machine (Figure 1)  is a visual representation of the states of the stoplight and the input needed to take it from one state to another.  We start in the “start” state and once started, it moves into the off position, regardless of any input.  From the off state, it can move into any other state, and back to off, depending on the input.  For example, if the machine is in the off state and the input 17 is given, the state will change to be in the “red” state.  This will continue for theoretically forever as there is no end unless power is removed.
 
 ![IMG_114BCFD1C6C3-1](https://user-images.githubusercontent.com/59840208/190528417-1aa93eae-7b30-4975-9a46-f528f8c0bae3.jpeg)
 Figure 1
 
-##System View
+## System View
 The user facing interface for this system is a html, css, and python webpage with a traffic light interface that the user can interact with (figure 2).  This interface includes an image of a stoplight with three coloured buttons corresponding with the lights on a traffic light, an “Off” button, and a “Cycle” button.  
 
 When the user presses one of the lights on the traffic light image, the corresponding colour will show up on the connected LEDs through the raspberry pi’s GPIO pins, to the breadboard.  When the “Off” button is pressed, any light that was previously set to on, is set to an off state. When the “Cycle” button is pressed, the lights will, starting at red, cycle through the different lights at 2 second intervals.  If the “Off” button is pressed in this mode, the cycle will stop.
@@ -27,7 +27,7 @@ When the user presses one of the lights on the traffic light image, the correspo
 <img width="518" alt="Screen Shot 2022-09-15 at 5 58 13 PM" src="https://user-images.githubusercontent.com/59840208/190528586-fc80a6b8-f1b3-4ea5-8266-03eab7d99078.png">
 Figure 2
 
-##Component View
+## Component View
 There are three main components to this lab.  The first is the computer and web browser from which the pi is connected to in order to control the circuit (more details mentioned in the System View section).  
 
 The second is a raspberry pi.  This is what runs the server for the user interface and allows the code created to compile.  It also acts as the “power source” for the LED’s on the breadboard (technically the power source originates from the outlet that the raspberry pi is plugged into). This raspberry pi contains a microSD card with a version of Raspbian OS from 2018 so that the GPIO pins can be configured correctly.  The GPIO pins are the important part of this lab as they are what we use to interface our webpage with the pi and the breadboard.  This lab uses pins 17, 27, and 22, although different pins can be used.  This raspberry pi is also connected to a power source, the internet, and a keyboard and mouse, although after initial setup, the majority of programming done will be done remotely through a different computer with ssh.  
@@ -61,7 +61,7 @@ If the off parameter is passed, all variables controlling threads will be set ac
 
  If the cycle parameter is passed, a second thread will start which will allow the loop controlling the cycling of the LEDs.  This is done in a separate thread so that the cycling can eventually stop.  If we did this in the main function, we would never be able to break the loop but we can stop the thread in main through boolean functions if it runs separately from the main thread.
 
-##Though Questions
+## Thought Questions
 * What language did you use for implementing this lab?  Why?
 ** I used python because it works very nicely with Flask and allows me to import useful libraries.  It is also very friendly to work with.
 * What is the purpose of the resistor in this lab?
