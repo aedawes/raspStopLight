@@ -1,0 +1,60 @@
+body {
+	background: #8fa5b2;
+}
+
+#content{
+	margin-top: 175px;
+	height: fit-content;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#stopLightContainer {
+	background: #e3e9e9;
+	height: 400px;
+	width: 200px;
+	border-radius: 25px;
+}
+
+#buttons {
+	height: 375px;
+	width: 115px;
+	padding-top: 7.5px;
+	padding-bottom: 7.5px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.light{
+	height: 60px;
+	width: 60px;
+    border-radius: 50%;
+    padding: 25px;
+    display: inline-block;
+    margin-left: auto;
+	margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px
+}
+
+#red{
+	background-color: rgb(197, 97, 97);
+}
+
+#yellow{
+	background-color: rgb(244, 244, 111);
+}
+
+#green{
+	background-color: rgb(123, 158, 123);
+}
+
+#offBtn{
+	display: inline-block;
+	background: #e3e9e9;
+	height: 100px;
+	width: 200px;
+	border-radius: 25px;
+	color: #3b4a4a;
+}
