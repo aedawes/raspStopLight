@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href='/static/style.css' />
+    </head>
+    <body>
+        <div id="content">
+            <div id="stopLightContainer">
+                <div id="buttons">
+                    {% for pin in pins %}
+                    {% if pins[pin].name == "GPIO 17" %}
+                    {% if pins[pin].state == true %}
+                        <div>
+                            <a href="/{{pin}}/off" class="light" id="red" role="button"/></a>
+                        </div>
+                    {% else %}
+                        <div>
+                            <a href="/{{pin}}/on" class="light" id="red" role="button"/></a>
+                        </div>
+                    {% endif %}
+                    {% endif %}
+                    {% if pins[pin].name == "GPIO 27" %}
+                    {% if pins[pin].state == true %}
+                        <div>
+                            <a href="/{{pin}}/off" class="light" id="yellow" role="button"/></a>
+                        </div>
+                    {% else %}
+                        <div>
+                            <a href="/{{pin}}/on" class="light" id="yellow" role="button"/></a>
+                        </div>
+                    {% endif %}
+                    {% endif %}
+                    {% if pins[pin].name == "GPIO 22" %}
+                    {% if pins[pin].state == true %}
+                        <div>
+                            <a href="/{{pin}}/off" class="light" id="green" role="button"/></a>
+                        </div>
+                    {% else %}
+                        <div>
+                            <a href="/{{pin}}/on" class="light" id="green" role="button"/></a>
+                        </div>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <div>
+                    <a href="/17/allBtnsOff" id="offBtn" role="button"> 
+                        <p id="text">Off</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="/17/cycle" id="offBtn" role="button"> 
+                        <p id="text">Cycle</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    #offBtn{
+        background: #e3e9e9;
+        margin-top: 25px;
+        height: 100px;
+        width: 200px;
+        border-radius: 25px;
+        color: #3b4a4a;
+        text-decoration: none;
+    }
+
+    #text{
+        font-size: 50px;
+        margin-top: 25px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+</style>
